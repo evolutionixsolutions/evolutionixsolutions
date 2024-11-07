@@ -1,0 +1,396 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #111725; /* Dark background color */
+    color: #ffffff; /* White text for readability */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Header Styles */
+header {
+    background: #297189; /* Dark blue-green background for header */
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%; /* Full width header */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* Style for header title */
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+/* Navigation Styles (Always in a row) */
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center items in navbar */
+    padding: 0;
+    margin: 0;
+    flex-direction: row; /* Ensure items are in a row */
+    flex-wrap: nowrap; /* Prevent wrapping for horizontal layout */
+    width: 100%; /* Full width for navigation */
+}
+
+/* Navigation items */
+header nav ul li {
+    margin: 0 10px; /* Adjust margin as needed */
+}
+
+/* Link styles */
+header nav ul li a {
+    color: #0dfef4; /* Bright cyan link color */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Hover state for links */
+header nav ul li a:hover {
+    color: #ffffff; /* White color on hover */
+}
+
+/* Media query for devices with a width of 480px */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 20px; /* Smaller heading for mobile devices */
+    }
+
+    header nav ul {
+        flex-direction: row; /* Ensure items remain in a row */
+        flex-wrap: nowrap; /* Keep items from wrapping */
+        justify-content: space-around; /* Space items evenly */
+    }
+
+    header nav ul li {
+        margin: 0 5px; /* Reduce margin for smaller screens */
+    }
+}
+
+/* Optional: specific adjustments for 769px to 784px */
+@media (min-width: 769px) and (max-width: 784px) {
+    header h1 {
+        font-size: 26px; /* Slightly smaller heading for this range */
+    }
+
+    header nav ul li {
+        margin: 0 10px; /* Adjust margin for navigation items if needed */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Home Section Styling */
+#home {
+    /* background: url('assets/hero-bg.jpg') center center/cover no-repeat; */
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 0 20px;
+    overflow: hidden;
+    animation: bgZoom 15s ease-in-out infinite; /* Background zoom effect */
+}
+
+
+
+
+/* Overlay for better text readability */
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 23, 37, 0.7);
+    z-index: 1;
+}
+
+.home-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0; /* Initial opacity for fade-in animation */
+    animation: fadeInSequence 2s ease-out forwards;
+}
+
+
+
+
+
+
+/* Heading with delayed fade-in and slide effect */
+#home h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    color: #0dfef4;
+    margin-bottom: 20px;
+    opacity: 0; /* Initial opacity for fade-in effect */
+    animation: slideInLeft 1s ease-out forwards 0.5s;
+}
+
+
+
+
+
+
+
+
+
+
+/* Subheading with delayed slide-in from the right */
+#home p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    opacity: 0; /* Initial opacity for fade-in effect */
+    animation: slideInRight 1s ease-out forwards 1s;
+}
+
+
+
+
+
+
+/* CTA Button with pulse effect */
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #0dfef4;
+    color: #111725;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(13, 254, 244, 0.4);
+    animation: pulse 2s infinite; /* Pulse effect on button */
+}
+
+.cta-button:hover {
+    background: #297189;
+    color: #ffffff;
+    transform: translateY(-5px);
+}
+
+
+
+
+
+
+
+
+/* Keyframes for animations */
+@keyframes bgZoom {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Sequential fade-in for home content */
+@keyframes fadeInSequence {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulse animation for CTA button */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* Section Styling */
+section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+    color: #ffffff;
+}
+
+
+
+#about, #team, #contact {
+    background: #111725; /* Dark background for other sections */
+}
+
+/* Service and Team Cards */
+#services .service-card, #team .team-member {
+    background: #297189; /* White background for better contrast */
+    color: #ffffff; /* Dark text on white */
+    border: 1px solid #297189;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#services h2, #about h2, #team h2, #contact h2 {
+    color: #0dfef4; /* Cyan for section titles */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Contact Form */
+#contact form {
+    display: flex;
+    flex-direction: column;
+    background: #297189; /* White background for form container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#contact form input, #contact form textarea {
+    margin-bottom: 15px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #297189;
+    border-radius: 5px;
+    background-color: #f0f0f0; /* Light gray background for input fields */
+    color: #111725;
+}
+
+#contact form input::placeholder, #contact form textarea::placeholder {
+    color: #0f0e0e; /* Light gray placeholder color */
+}
+
+button {
+    padding: 10px;
+    background: #0dfef4; /* Bright cyan for button */
+    color: #111725; /* Dark text for button */
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background: #297189; /* Darken button on hover */
+    color: #ffffff;
+}
+
+/* Footer */
+footer {
+    background: #297189;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #home h2 {
+        font-size: 36px;
+    }
+
+    #home p {
+        font-size: 18px;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+}
